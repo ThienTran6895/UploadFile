@@ -1,8 +1,11 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tables";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -17,7 +20,12 @@
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
         </div>
         <div class="card-header py-3">
-            <input type="file" id="Upload" value="Upload"/>
+            <button type="button" class="btn btn-primary" data-toggle="modal" aria-pressed="false" autocomplete="off" data-target="#Upload" style="margin-left: 1100px;">
+                Thêm
+            </button>
+            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                Xoá
+            </button>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -28,30 +36,93 @@
                             <th>Type</th>
                             <th>Upload Date</th>
                             <th>Upload Person</th>
+                            <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    @*<tbody>
                         <tr>
                             <th></th>
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th style="padding:0 0 0 0; border:0;">
-                                @Html.DropDownList("Action", new List<SelectListItem>() {
-                               new SelectListItem() {Text = "View", Value = "Action_View"},
-                               new SelectListItem() {Text = "Download", Value = "Action_Download"},
-                               new SelectListItem() {Text = "Delete", Value = "Action_Delete"},
-                           })
-                            </th>
-
-
+                            <th>
+                                <div class="dropdown">
+                                    <button id="action" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        -- Chọn thao tác --
+                                        <span class="caret"></span>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="action">
+                                        <a class="dropdown-item" href="#">View</a>
+                                        <a class="dropdown-item" href="#">Download</a>
+                                        <a class="dropdown-item" href="#">Delete</a>
+                                    </div>
+                                </div>
+                            </th>                            
                         </tr>
-                    </tbody>
-
+                    </tbody>*@
                 </table>
             </div>
         </div>
     </div>
 
+
+    @* Modal Upload File *@
+    <div class="modal fade" id="Upload" tabindex="-1" role="dialog" aria-labelledby="FileInfo">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="FileInfo">Upload File</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                </div>
+                <div class="modal-body">
+                    <form id="uploader">
+                        <div class="form-group">
+                            <label for="file-name" class="control-label">Tên File:</label>
+                            <input type="file" class="form-control" id="file-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="upload-date" class="control-label">Ngày Upload:</label>
+                            <input type="date" class="form-control" id="upload-date" />
+                        </div>
+                        <div class="form-group">
+                            <label for="upload-person" class="control-label">Người Upload:</label>
+                            <input type="text" class="form-control" id="upload-person" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" data-dismiss="modal" id="submit">Xác nhận</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.noConflict();
+            var table = $("dataTable").DataTable();
+            
+            //Choose File to Upload                     
+            $("#submit").on("click", function () {
+                var formData = new FormData(document.getElementById("uploader"));
+                var fileInput = document.getElementById("file-name");
+                for (var i = 0; i < fileInput.files.length; i++) {
+                    formData.append(fileInput.files[i].name, fileInput.files[i]);
+                } 
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/Tables/Upload");
+                xhr.send(formData);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        alert(xhr.responseText);
+                    }
+                }
+            });                                     
+        });
+    </script>
+
 </div>
+
 
