@@ -121,9 +121,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TablesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\File.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2109,11 +2111,10 @@
     <Content Include="Scripts\Plugin\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Scripts\Plugin\vendor\jquery\jquery.min.map" />
     <Content Include="Scripts\Plugin\vendor\jquery\jquery.slim.min.map" />
-    <Content Include="Views\Home\Tables.cshtml" />
+    <Content Include="Views\Tables\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

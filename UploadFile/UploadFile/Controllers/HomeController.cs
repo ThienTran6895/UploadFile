@@ -11,11 +11,6 @@ namespace UploadFile.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-
-        public ActionResult Tables()
-        {
-            return View();
-        }
+        }       
     }
 }
