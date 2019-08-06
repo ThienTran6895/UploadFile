@@ -1,0 +1,116 @@
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.deps.json
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.json
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.dev.json
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.dll
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.pdb
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csprojAssemblyReference.cache
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csproj.CoreCompileInputs.cache
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cache
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cs
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfoInputs.cache
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfo.cs
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorTargetAssemblyInfo.cache
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.dll
+F:\VuThao\ASPNetCore\AspNetCore.Docs-master\aspnetcore\tutorials\first-web-api\samples\2.2\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.pdb
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.deps.json
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.json
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.dev.json
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.dll
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.pdb
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cache
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cs
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfo.cs
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorTargetAssemblyInfo.cache
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.dll
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.pdb
+C:\Users\Admin\source\repos\KendoUI\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csprojAssemblyReference.cache
+C:\Users\thientc\Desktop\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.deps.json
+C:\Users\thientc\Desktop\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.json
+C:\Users\thientc\Desktop\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.dev.json
+C:\Users\thientc\Desktop\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.dll
+C:\Users\thientc\Desktop\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.pdb
+C:\Users\thientc\Desktop\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csprojAssemblyReference.cache
+C:\Users\thientc\Desktop\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\thientc\Desktop\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cache
+C:\Users\thientc\Desktop\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cs
+C:\Users\thientc\Desktop\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfoInputs.cache
+C:\Users\thientc\Desktop\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfo.cs
+C:\Users\thientc\Desktop\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorTargetAssemblyInfo.cache
+C:\Users\thientc\Desktop\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.dll
+C:\Users\thientc\Desktop\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.pdb
+H:\Vu Thao\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.deps.json
+H:\Vu Thao\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.json
+H:\Vu Thao\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.dev.json
+H:\Vu Thao\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.dll
+H:\Vu Thao\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.pdb
+H:\Vu Thao\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csprojAssemblyReference.cache
+H:\Vu Thao\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csproj.CoreCompileInputs.cache
+H:\Vu Thao\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cache
+H:\Vu Thao\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cs
+H:\Vu Thao\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfoInputs.cache
+H:\Vu Thao\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfo.cs
+H:\Vu Thao\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorTargetAssemblyInfo.cache
+H:\Vu Thao\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.dll
+H:\Vu Thao\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.pdb
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.deps.json
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.json
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.dev.json
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.dll
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.pdb
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csprojAssemblyReference.cache
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cache
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cs
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfoInputs.cache
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfo.cs
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorTargetAssemblyInfo.cache
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.dll
+C:\Users\thangvd\Desktop\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.pdb
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.deps.json
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.json
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.dev.json
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.dll
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.pdb
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csprojAssemblyReference.cache
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cache
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cs
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfoInputs.cache
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfo.cs
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorTargetAssemblyInfo.cache
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.dll
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.pdb
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.Views.dll
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.Views.pdb
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.TagHelpers.input.cache
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.TagHelpers.output.cache
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorCoreGenerate.cache
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorTargetAssemblyInfo.cs
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.Views.pdb
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csproj.CopyComplete
+H:\Vu Thao\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.deps.json
+H:\Vu Thao\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.json
+H:\Vu Thao\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.runtimeconfig.dev.json
+H:\Vu Thao\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.dll
+H:\Vu Thao\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.pdb
+H:\Vu Thao\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.Views.dll
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csprojAssemblyReference.cache
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csproj.CoreCompileInputs.cache
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cache
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorAssemblyInfo.cs
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfoInputs.cache
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.AssemblyInfo.cs
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorTargetAssemblyInfo.cache
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.dll
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.pdb
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.csproj.CopyComplete
+H:\Vu Thao\Demo\Demo\TodoApi\bin\Debug\netcoreapp2.2\WebAPI.Views.pdb
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.TagHelpers.input.cache
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.TagHelpers.output.cache
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorCoreGenerate.cache
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\Razor\Views\Upload\Files.g.cshtml.cs
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.RazorTargetAssemblyInfo.cs
+H:\Vu Thao\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\WebAPI.Views.pdb
+C:\Users\thientc\Desktop\Kendo UI\Demo\Demo\TodoApi\obj\Debug\netcoreapp2.2\Razor\Views\Upload\Files.g.cshtml.cs

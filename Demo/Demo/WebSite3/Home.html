@@ -1,0 +1,656 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="Css/kendo.common.min.css" />
+    <link rel="stylesheet" href="Css/kendo.default.min.css" />
+    <link rel="stylesheet" href="Css/kendo.default.mobile.min.css" />
+    <link rel="stylesheet" href="Css/kendo.rtl.min.css" />
+    <link rel="stylesheet" href="Css/kendo.silver.min.css" />
+    <link rel="stylesheet" href="Css/kendo.mobile.all.min.css" />
+    <!--<link rel="stylesheet" href="Css/kendo.blueopal.min.css" />-->
+
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/kendo.all.min.js"></script>
+
+
+
+</head>
+<body>
+    <div id="example">
+        <div id="grid">
+            <!--<form method="post" action="https://localhost:44331/Upload/UploadFiles">
+                <div class="demo-section k-content">
+                    <input name="files" type="file" id="files" />
+                    <p style="padding-top: 1em; text-align: right">
+                        <button type="submit" class="k-button k-primary">Submit</button>
+                    </p>
+                </div>
+            </form>-->
+            <div class="demo-section k-content">
+                <input name="files" type="file" id="files" />
+            </div>
+        </div>
+
+
+
+        <script type="text/x-kendo-template" id="deleteTemplate">
+            Delete
+            <strong>#= ProductName #</strong> ?
+            <p></p>
+            We have #= UnitsInStock # units in stock.
+            <p></p>
+            <button class="k-button" id="yesButton">Yes</button>
+            <button class="k-button" id="noButton"> No</button>
+        </script>
+        <script type="text/x-kendo-template" id="deleteAllTemplate">
+            <strong>Do you want to delete #= Confirm # record?</strong>
+            <button class="k-button" id="yesButton">Yes</button>
+            <button class="k-button" id="noButton"> No</button>
+        </script>
+        <script id='cust_toolbar' type='text/x-kendo-template'>
+            <a class="k-button k-button-icontext k-grid-add k-cust-add"><span class="k-icon k-i-add"></span>Add</a>
+            <a class="k-button k-button-icontext k-grid-save k-cust-save k-state-selected"><span class="k-icon k-i-save"></span>Save</a>
+            <a class="k-button k-button-icontext k-grid-update k-cust-update k-state-selected"><span class="k-icon k-i-reload"></span>Update</a>
+            <a class="k-button k-button-icontext k-grid-cancel k-cust-cancel k-state-selected"><span class="k-icon k-i-cancel"></span>Cancel</a>
+            <a class="k-button k-button-icontext k-grid-edit k-cust-edit"><span class="k-icon k-i-edit"></span>Edit</a>
+            <a class="k-button k-button-icontext k-grid-delete k-cust-delete"><span class="k-icon k-i-close"></span>Delete</a>
+            <a class="k-button k-button-icontext k-grid-up k-cust-up"><span class="k-icon k-i-arrow-up"></span>Move Up</a>
+            <a class="k-button k-button-icontext k-grid-down k-cust-down"><span class="k-icon k-i-arrow-down"></span>Move Down</a>
+            <a class="k-button k-button-icontext k-grid-download k-cust-download"><span class="k-icon k-i-download"></span>Download</a>
+            <a class="k-button k-button-icontext k-grid-share k-cust-share"><span class="k-icon k-i-share"></span>Share</a>
+            <a class="k-button k-button-icontext k-grid-back k-cust-back"><span class="k-icon k-i-undo"></span>Back</a>
+            <a class="k-button k-button-icontext k-grid-logout k-cust-logout"><span class="k-icon k-i-undo"></span>LogOut</a>
+        </script>
+
+        <script id="image-file" type="text/x-kendo-template">
+            <div class="image-file" style="background-image: url(../Images/word.png)"></div>
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //status();
+                check();
+                //var crudServiceBaseUrl = "https://localhost:44331/api",
+                var crudServiceBaseUrl = "https://localhost:44326/api",
+                    dataSource = new kendo.data.DataSource({
+                        //autoSync: true,
+                        transport: {
+                            read: function (options) {
+                                $.ajax({
+                                    //url: crudServiceBaseUrl + "/Upload/GetFile",
+                                    url: crudServiceBaseUrl + "/Files/GetFile",
+                                    contentType: "application/json",
+                                    type: "GET",
+                                    dataType: "json",
+                                    cache: false,
+                                    success: function (result) {
+                                        options.success(result);
+                                    },
+                                    error: function (result) {
+                                        options.error(result);
+                                    }
+                                });
+                            },
+                            parameterMap: function (options, operation) {
+                                if (operation !== "read" && options.models) {
+                                    return { models: kendo.stringify(options.models) };
+                                }
+                            }
+                        },
+                        //serverPaging: true,
+                        //serverSorting: true,
+                        //serverFiltering: true,
+                        //serverGrouping: true,
+                        //serverAggregates: true,
+                        batch: true,
+                        pageSize: 15,
+                        schema: {
+                            model:
+                            {
+                                //id: "Id",
+                                fields:
+                                {
+                                    //id: { editable: true, nullable: true },
+                                    //type: { type: "string", editable: false },
+                                    //name: { type: "string", validation: { required: true }, editable: true },
+                                    //area: { type: "string", validation: { required: true }, editable: false },
+                                    //person: { type: "string", validation: { required: true }, editable: false },
+                                    day: { type: "date", editable: false },
+                                    //path: { type: "string" },
+                                    //isComplete: { type: "boolean" }
+                                    fileName: { type: "string", editable: true },
+                                    contentType: { type: "string", editable: false },
+                                    user: [
+                                        { name: { type: "string" }, name: { editable: false } },
+                                    ]
+                                }
+                            }
+                        }
+                    });
+
+
+                var grid = $("#grid").kendoGrid({
+                    dataSource: dataSource,
+                    navigatable: true,
+                    pageable: true,
+                    persistSelection: true,
+                    height: 550,
+                    toolbar: [{ template: kendo.template($("#cust_toolbar").html()) }],
+                    //toolbar: ["create", "destroy", "update"],
+                    columns: [
+                        //{ selectable: true, width: 50 },
+                        {
+                            title: 'Select All',
+                            headerTemplate: "<input type='checkbox' id='header-chb' class='k-checkbox header-checkbox'><label class='k-checkbox-label' for='header-chb'></label>",
+                            template: function (dataItem) {
+                                return "<input type='checkbox' id='" + dataItem.id + "' class='k-checkbox row-checkbox'><label class='k-checkbox-label' for='" + dataItem.id + "'></label>";
+                            }, width: 80
+                        },
+                        //{
+                        //    template: "<div class='k-icon k-i-folder'></div>",
+                        //    //template: "<tr data-uid= #: uid #><td class='k-icon k-i-folder'></td></tr>",
+                        //    field: "Type", title: "Loại", width: 70
+                        //},
+                        //{ field: "ProductName", title: "Product Name", width: 250 },
+                        //{ field: "UnitPrice", title: "Unit Price", format: "{0:c}", width: "120px" },
+                        //{ field: "UnitsInStock", title: "Units In Stock", width: "120px" },
+                        //{ field: "Discontinued", width: "120px", editor: customBoolEditor }],
+                        //{ command: ["edit", { text: "Delete", click: showDelete }], title: "&nbsp;", width: 170 }],
+
+                        //{ field: "id", title: "STT", width: 80},
+                        {
+                            template: "<div class='image-file'" + "style='background-image: url(../Images/t#:data.contentType#.png);'></div>",
+                            //template: kendo.template($("#image-file").html()),
+                            //template: extension(),
+                            field: "contentType", title: "Loại", width: 70
+                        },
+                        { field: "fileName", title: "Họ và Tên", width: 170 },
+                        { field: "area", title: "Lĩnh vực", width: 120 },
+                        { field: "user.name", title: "Người sửa đồi", width: 170 },
+                        { field: "day", title: "Ngày sửa đổi", format: "{0: dd/MM/yyyy hh:mm tt}", width: 150 },
+
+                        { field: "iscomplete", title: "Trạng thái", editor: customBoolEditor, width: 120 }],
+
+                    //{ field: "Title", title: "Tiêu đề", width: 170 },
+                    //{ field: "Area", title: "Lĩnh vực", width: 120 },
+                    //{ field: "ChangeDate", title: "Ngày sửa đổi", format: "{0:dd/mm/yyyy hh:mm tt}", width: 120 },
+                    //{ field: "ChangePerson", title: "Người sửa đổi", width: 120 }],
+                    //{ command: ["edit", { text: "delete", click: showdelete }], title: "&nbsp;", width: 150 }],
+                    editable: { mode: "inline", confirmation: false },
+                    sortable: true,
+                    //selectable: "multiple"
+                }).data("kendoGrid");
+
+
+                $("#files").kendoUpload({
+                    async: {
+                        chunkSize: 11000,
+                        //saveUrl: "https://localhost:44331/api/Upload/ChunkSave",
+                        saveUrl: "https://localhost:44326/api/Files/ChunkSave",
+                        autoSave: true,                        
+                    },
+                    success: function () {
+                        grid.dataSource.read();
+                    }
+                });
+
+
+
+
+
+                HideExtraBtn();
+
+
+                //Highlight the row on click checked in grid by custom toolbar
+                grid.table.on("click", ".row-checkbox", selectRow);
+                $('#header-chb').change(function (ev) {
+                    var checked = ev.target.checked;
+                    $('.row-checkbox').each(function (idx, item) {
+                        if (checked) {
+                            if (!($(item).closest('tr').is('.k-state-selected'))) {
+                                $(item).click();
+                            }
+                        } else {
+                            if ($(item).closest('tr').is('.k-state-selected')) {
+                                $(item).click();
+                            }
+                        }
+                    });
+                });
+                function selectRow() {
+                    var checked = this.checked,
+                        row = $(this).closest("tr"),
+                        grid = $("#grid").data("kendoGrid"),
+                        dataItem = grid.dataItem(row);
+
+                    //checkedIds[dataItem.id] = checked;
+
+                    if (checked) {
+                        //-select the row
+                        row.addClass("k-state-selected");
+
+                        var checkHeader = true;
+
+                        $.each(grid.items(), function (index, item) {
+                            if (!($(item).hasClass("k-state-selected"))) {
+                                checkHeader = false;
+                            }
+                        });
+
+                        $("#header-chb")[0].checked = checkHeader;
+                    } else {
+                        //-remove selection
+                        row.removeClass("k-state-selected");
+                        $("#header-chb")[0].checked = false;
+                    }
+                }
+
+                //Checked eneable button
+                $(".k-checkbox, #grid").click(function () {
+                    var checked_status = this.checked;
+                    var row = grid.tbody.find(".k-state-selected");
+                    if (checked_status == true || row.length === 1) {
+                        $(".k-cust-edit").removeClass("k-state-disabled").removeAttr('disabled');
+                        $(".k-cust-delete").removeClass("k-state-disabled").removeAttr('disabled');
+                        $(".k-cust-up").removeClass("k-state-disabled").removeAttr("disabled");
+                        $(".k-cust-down").removeClass("k-state-disabled").removeAttr("disabled");
+
+                    }
+                    else if (row.length > 1) {
+                        $(".k-cust-edit").addClass("k-state-disabled").attr("disabled", "disabled");
+                        $(".k-cust-up").addClass("k-state-disabled").attr("disabled", "disabled");
+                        $(".k-cust-down").addClass("k-state-disabled").attr("disabled", "disabled");
+                    } else {
+                        $(".k-cust-edit").addClass("k-state-disabled").attr("disabled", "disabled");
+                        $(".k-cust-delete").addClass("k-state-disabled").attr("disabled", "disabled");
+                        $(".k-cust-up").addClass("k-state-disabled").attr("disabled", "disabled");
+                        $(".k-cust-down").addClass("k-state-disabled").attr("disabled", "disabled");
+                    }
+                });
+
+
+
+                //Add new row to grid on click of Add button.
+                $(".k-cust-add", grid.element).on("click", function (ev) {
+                    grid.addRow();
+                    $(".k-cust-add").hide();
+                    $(".k-cust-save").show();
+                    $(".k-cust-cancel").show();
+                    $(".k-cust-edit").addClass("k-state-disabled").attr("disabled", "disabled");
+                    $(".k-cust-delete").addClass("k-state-disabled").attr("disabled", "disabled");
+
+                });
+
+                //Save the added row
+                $(".k-cust-save", grid.element).on("click", function (ev) {
+                    //grid.saveRow();
+                    addItem();
+                    restoreGridToolbar();
+                });
+
+                //Edit the currently select row
+                $(".k-cust-edit", grid.element).on("click", function (ev) {
+                    var selectedrow = grid.tbody.find(".k-state-selected");
+                    if (selectedrow.length === 1) {
+                        grid.editRow(selectedrow);
+
+
+                        selectedrow.find(".k-checkbox").attr("checked", "checked").attr("disable", "disable");
+                        $(".k-cust-edit").hide();
+                        $(".k-cust-update").show();
+                        $(".k-cust-cancel").show();
+                        $(".k-cust-add").addClass("k-state-disabled").attr("disabled", "disabled");
+                        $(".k-cust-delete").hide();
+                    }
+
+                });
+
+                //Update the details
+                $(".k-cust-update", grid.element).on("click", function (ev) {
+                    //grid.saveChanges();
+                    var selrow = grid.tbody.find(".k-state-selected");
+                    var selDataItem = [];
+                    for (var i = 0; i < selrow.length; i++) {
+                        var dataItem = grid.dataItem(selrow[i]);
+                        selDataItem.push(dataItem);
+                    }
+                    for (var i = 0; i < selDataItem.length; i++) {
+                        edtDataItem = selDataItem[i];
+                        editItem(edtDataItem);
+                    }
+
+                    $(".k-cust-delete").show();
+                    restoreGridToolbar();
+                });
+
+                //Cancel the add/edit of grid
+                $(".k-cust-cancel", grid.element).on("click", function (ev) {
+                    grid.cancelChanges();
+                    $(".k-cust-delete").show();
+                    restoreGridToolbar();
+                });
+
+                //Delete
+                $(".k-cust-delete", grid.element).on("click", function (ev) {
+                    var selrow = grid.tbody.find(".k-state-selected");
+                    var selDataItem = [];
+                    for (var i = 0; i < selrow.length; i++) {
+                        var dataItem = grid.dataItem(selrow[i]).id;
+                        selDataItem.push(dataItem);
+                    }
+                    if (selrow.length > 0 && confirm("do you want to delete " + selrow.length + " record(s)?")) {
+                        //for (var i = 0; i < selDataItem.length; i++) {
+                        //    delDataItem = selDataItem[i];
+                        //    deleteItem(delDataItem);
+                        //}
+                        deleteItem(selDataItem);
+                    }
+                });
+
+                //Download
+                $(".k-cust-download", grid.element).on("click", function (ev) {
+                    var selrow = grid.tbody.find(".k-state-selected");
+                    var selDataItem = [];
+                    for (var i = 0; i < selrow.length; i++) {
+                        var dataItem = grid.dataItem(selrow[i]).id;
+                        selDataItem.push(dataItem);
+                    }
+                    downloadItem(selDataItem);
+                    //for (var i = 0; i < selDataItem.length; i++) {
+                    //    dowDataItem = selDataItem[i];
+                    //    downloadItem(dowDataItem);
+                    //}
+                });
+
+                //Move Up
+                $(".k-cust-up", grid.element).on("click", function (ev) {
+                    var selectedItem = grid.tbody.find(".k-state-selected");
+                    var selectedUid = selectedItem.attr("data-uid");
+                    var itemIndex = selectedItem.index();
+                    var dataItem = grid.dataItem(selectedItem);
+
+                    var newIndex = itemIndex - 1;
+                    var content = $(".k-state-selected");
+                    var offset = selectedItem.offset().top;
+
+                    if (newIndex <= 0) {
+                        newIndex = 0;
+                    }
+
+                    grid.dataSource.remove(dataItem);
+                    grid.dataSource.insert(newIndex, dataItem);
+
+                    grid.select("[data-uid=" + selectedUid + "]");
+
+                    content.scrollTop(offset);
+                });
+
+                //Move Down
+                $(".k-cust-down", grid.element).on("click", function (ev) {
+                    var selectedItem = grid.tbody.find(".k-state-selected");
+                    var selectedUid = selectedItem.attr("data-uid");
+                    var itemIndex = selectedItem.index();
+                    var dataItem = grid.dataItem(selectedItem);
+
+                    var newIndex = itemIndex + 1;
+                    var content = $(".k-state-selected");
+
+                    var offset = selectedItem.offset().top;
+
+                    if (newIndex < grid.dataSource.view().length) {
+                        grid.dataSource.remove(dataItem);
+                        grid.dataSource.insert(newIndex, dataItem);
+
+                        grid.select("[data-uid=" + selectedUid + "]");
+
+                        content.scrollTop(offset);
+                    }
+                });
+
+                //Log Out
+                $(".k-cust-logout", grid.element).on("click", function (ev) {
+                    const item = {
+                        id: sessionStorage.getItem("id")
+                    };
+                    $.ajax({
+                        type: "DELETE",
+                        contentType: "application/json",
+                        dataType: "json",
+                        url: "https://localhost:44326/api/Logins",
+                        data: JSON.stringify(item),
+                        success: function () {
+                            sessionStorage.removeItem("username");
+                            sessionStorage.removeItem("id");
+                            if (sessionStorage.length == 0) {
+                                document.location.href = "Login.html";
+                            }
+                        }
+                    });
+                });
+
+                //Get user from database to session client
+                function status() {
+                    const item = {
+                        id: sessionStorage.getItem("id"),
+                        username: sessionStorage.getItem("username")
+                    };
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/x-www-form-urlencoded",
+                        //dataType: "json",
+                        url: "https://localhost:44326/api/Files/Destroy",
+                        data: item,
+                    });
+
+                }
+
+                var id_cli = sessionStorage.getItem("username");
+                function check() {
+                    $.ajax({
+                        url: "https://localhost:44326/api/Files/GetUsers",
+                        contentType: "application/json",
+                        type: "GET",
+                        dataType: "json",
+                        cache: false,
+                        success: function (result) {
+                            for (var i = 0; i < result.length; i++) {
+                                if (id_cli == result[i].username) {
+                                    break;
+                                }
+                            }
+                            if (sessionStorage.length == 0) {
+                                document.location.href = "Login.html";
+                            }
+                            grid.dataSource.read();
+                            
+
+                        },
+                    });
+                }
+
+                function HideExtraBtn() {
+                    $(".k-cust-save").hide();
+                    $(".k-cust-update").hide();
+                    $(".k-cust-cancel").hide();
+                    $(".k-cust-edit").addClass("k-state-disabled").attr("disabled", "disabled");
+                    $(".k-cust-delete").addClass("k-state-disabled").attr("disabled", "disabled");
+                    $(".k-cust-up").addClass("k-state-disabled").attr("disabled", "disabled");
+                    $(".k-cust-down").addClass("k-state-disabled").attr("disabled", "disabled");
+                }
+
+                function restoreGridToolbar() {
+                    $(".k-cust-edit").show();
+                    $(".k-cust-update").hide();
+                    $(".k-cust-add").show();
+                    $(".k-cust-save").hide();
+                    $(".k-cust-cancel").hide();
+                    $(".k-cust-add").removeClass("k-state-disabled").removeAttr('disabled');
+                    $(".k-cust-edit").removeClass("k-state-disabled").removeAttr('disabled');
+                    $(".k-cust-delete").removeClass("k-state-disabled").removeAttr('disabled');
+                }
+
+                function customBoolEditor(container, options) {
+                    var guid = kendo.guid();
+                    $('<input class="k-checkbox" id="' + guid + '" type="checkbox" name="isComplete" data-type="boolean" data-bind="checked:isComplete">').appendTo(container);
+                    $('<label class="k-checkbox-label" for="' + guid + '">&#8203;</label>').appendTo(container);
+                }
+
+                function addItem() {
+                    const item = {
+                        name: $('[data-bind="value:name"]').val(),
+                        area: $('[data-bind="value:area"]').val(),
+                        person: $('[data-bind="value:person"]').val(),
+                        day: $('[data-bind="value:day"]').val(),
+                        isComplete: false
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        crossDomain: true,
+                        accepts: "application/json",
+                        url: crudServiceBaseUrl + "/todo",
+                        contentType: "application/json",
+                        data: JSON.stringify(item),
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert("Something went wrong!");
+                        },
+                        success: function (result) {
+                            grid.dataSource.read();
+                        }
+                    });
+                }
+
+                function deleteItem(id) {
+                    // <snippet_AjaxDelete>
+                    $.ajax({
+                        //url: crudServiceBaseUrl + "/todo" + "/" + id,
+                        //url: crudServiceBaseUrl + "/upload" + "/deletefile" + "/" + id,
+                        url: crudServiceBaseUrl + "/Files/deletefile" + "/" + id,
+                        type: "DELETE",
+                        success: function (result) {
+                            grid.dataSource.read();
+
+                        }
+                    });
+                    // </snippet_AjaxDelete>
+                }
+
+                function editItem(data) {
+                    grid.select().each(function (key, item) {
+                        if (item.id === data.id) {
+                            $('[data-bind="value:fileName"]').val(item.fileName);
+                            //$('[data-bind="value:name"]').val(item.name);
+                            //$('[data-bind="value:area"]').val(item.area);
+                            //$('[data-bind="value:person"]').val(item.person);
+                            //$('[data-bind="value:day"]').val(item.day);
+                            //$('[data-bind="checked:isComplete"]')[0].checked = item.isComplete;
+                        }
+                    });
+                    const item = {
+                        fileName: $('[data-bind="value:fileName"]').val(),
+                        //name: $('[data-bind="value:name"]').val(),
+                        //area: $('[data-bind="value:area"]').val(),
+                        //person: $('[data-bind="value:person"]').val(),
+                        //day: $('[data-bind="value:day"]').val(),
+                        //isComplete: $('[data-bind="checked:isComplete"]').is(":checked"),
+                    };
+                    $.ajax({
+                        //url: crudServiceBaseUrl + "/todo" + "/" + id,
+                        //url: crudServiceBaseUrl + "/upload" + "/editfile" + "/" + data.id + "/" + data.name,
+                        url: crudServiceBaseUrl + "/Files" + "/editfile" + "/" + data.id + "/" + data.fileName,
+                        type: "PUT",
+                        accepts: "application/json",
+                        contentType: "application/json",
+                        //data: JSON.stringify(item),
+                        success: function (result) {
+                            grid.dataSource.read();
+                        },
+                        error: function (result) {
+                            alert("Tên file đã tồn tại");
+                            grid.dataSource.read();
+                        }
+                    });
+                }
+                function downloadItem(id) {
+                    var url = crudServiceBaseUrl + "/upload" + "/download" + "/" + id;
+                    $.ajax({
+                        url: url,
+                        type: "GET",
+                        accepts: "application/json",
+                        contentType: "application/json",
+                        success: function (result) {
+                            grid.dataSource.read();
+                        }
+                    });
+                }
+
+                function extension() {
+
+                    return "<div class='image-file' style='background-image: url(../Images/excel.png)'></div>";
+
+
+
+                }
+
+            });
+        </script>
+    </div>
+
+    <style type="text/css">
+        .image-file {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-size: 48px 51px;
+            background-position: center center;
+            vertical-align: middle;
+            line-height: 32px;
+            box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+            margin-left: 5px;
+        }
+
+        .customer-name {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 32px;
+            padding-left: 3px;
+        }
+
+        .k-i-folder {
+            font-size: 40px;
+        }
+
+        .background-Image {
+            font-size: 40px;
+        }
+
+        .file-icon {
+            display: inline-block;
+            float: left;
+            width: 48px;
+            height: 48px;
+            margin-left: 10px;
+            margin-top: 13.5px;
+        }
+
+
+
+        .doc-file {
+            background-image: url(../Images/docx.png);
+        }
+
+        .pdf-file {
+            background-image: url(../Images/pdf.png);
+        }
+
+        .xls-file {
+            background-image: url(../Images/excel.png);
+        }
+    </style>
+
+
+</body>
+</html>

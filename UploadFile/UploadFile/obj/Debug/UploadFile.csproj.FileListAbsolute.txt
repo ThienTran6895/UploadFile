@@ -150,3 +150,5 @@ H:\MatBao_BPO\UploadFile\UploadFile\UploadFile\obj\Debug\UploadFile.csproj.CoreC
 H:\MatBao_BPO\UploadFile\UploadFile\UploadFile\obj\Debug\UploadFile.csproj.CopyComplete
 H:\MatBao_BPO\UploadFile\UploadFile\UploadFile\obj\Debug\UploadFile.dll
 H:\MatBao_BPO\UploadFile\UploadFile\UploadFile\obj\Debug\UploadFile.pdb
+H:\MatBao_BPO\UploadFile\UploadFile\UploadFile\bin\Dapper.dll
+H:\MatBao_BPO\UploadFile\UploadFile\UploadFile\bin\Dapper.xml

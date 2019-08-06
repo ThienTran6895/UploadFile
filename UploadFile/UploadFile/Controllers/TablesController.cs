@@ -6,12 +6,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UploadFile.Models;
+using UploadFile.Repository;
 using File = UploadFile.Models.File;
 
 namespace UploadFile.Controllers
 {
     public class TablesController : Controller
     {
+        public FileRepository fileRepository = new FileRepository();
         // GET: Tables
         public ActionResult Index()
         {
@@ -26,20 +28,27 @@ namespace UploadFile.Controllers
 
         // GET: Tables/Upload
         [HttpPost]
-        public JsonResult Upload()
+        public JsonResult Upload(File files)
         {
             for (int i = 0; i < Request.Files.Count; i++)
             {
                 HttpPostedFileBase file = Request.Files[i]; //Uploaded file
-                                                            //Use the following properties to get file's name, size and MIMEType
-                int fileSize = file.ContentLength;
-                string fileName = file.FileName;
-                string mimeType = file.ContentType;
-                System.IO.Stream fileContent = file.InputStream;
+                //Use the following properties to get file's name, size and MIMEType
+                //var fileupload = Request.Files[i];   
+                files.FileID = Guid.NewGuid();
+                files.FileName = file.FileName;
+                //files.UploadDate = DateTime.Now.ToLocalTime();
+                files.UploadPerson = "Admin";
+                //int fileSize = file.ContentLength;
+                //string fileName = file.FileName;
+                //string mimeType = file.ContentType;
+                //System.IO.Stream fileContent = file.InputStream;
                 //To save file, use SaveAs method
-                file.SaveAs(Server.MapPath("~/UploadFiles/") + fileName); //File will be saved in application root
+                file.SaveAs(Server.MapPath("~/UploadFiles/") + files.FileName); //File will be saved in application root
             }
-            return Json("Uploaded " + Request.Files.Count + " files");
+            var result = fileRepository.AddFile(files);
+            return Json(result);
+            //return Json("Uploaded " + Request.Files.Count + " files");
         }
         //public ActionResult Upload(HttpPostedFileBase files)
         //{

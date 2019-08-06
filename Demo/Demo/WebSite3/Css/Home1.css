@@ -1,0 +1,49 @@
+﻿@charset "utf-8";
+body{ font-family:Arial, Helvetica, sans-serif; font-size:14px;}
+*{
+	-ms-box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;
+	-o-box-sizing:border-box; box-sizing:border-box;
+}
+/*.TitleF{ margin-bottom:15px; }
+.TitleF>span{ display:inline-block; font-size:22px; font-weight:500; }
+.Buttons{ border-bottom:1px #eee solid; text-align:right; position:relative; }
+.Buttons button{ margin-bottom:8px; }
+.Notify{ position:absolute; top:8px; left:0; color:#f00; }
+.Form-ds{ padding:15px 0; }
+.flex-row{ display: flex;flex-wrap: wrap; }
+.ItemText{ float:left; width:150px; padding:6px 8px 6px 0; }
+.ItemInput{ padding:6px 20px 6px 0; margin-left:150px; }
+.ItemInput input,.ItemInput select,.ItemInput textarea{ width:100%; }
+.ItemInput textarea{ min-height:48px; resize: vertical; }
+.ItemInput input[type=radio],.ItemInput input[type=checkbox],.ItemInput input[type=image],.ItemInput input[type=button]{ 
+	width:auto; }*/
+
+
+/* percent coloum */
+/*.percent-info p span{ display:inline-block; width:90px; }*/
+.col-group:after{ content:""; display:table; width:100%; }
+.col-md{ float:left; }
+.col-md1 {float:right;}
+.col-md-12{ width:100%; }
+.col-md-11{ width:91.66666667%; }
+.col-md-10{ width:83.33333333%; }
+.col-md-9{ width:75%; }
+.col-md-8{ width:66.66666667%; }
+.col-md-7{ width:58.33333333%; }
+.col-md-6{ width:50%; }
+.col-md-5{ width:41.66666667%; }
+.col-md-4{ width:33.33333333%; }
+.col-md-3{ width:25%; }
+.col-md-2{ width:16.66666667%; }
+.col-md-1{ width:8.33333333%; }
+.col-md-20{ width:20%; }
+
+.TitleF{ margin-bottom:15px; }
+.TitleF>span{ display:inline-block; font-size:22px; font-weight:500; }
+.Buttons{ border-bottom:1px #eee solid; text-align:right; position:relative; }
+.Buttons button{ margin-bottom:8px; }
+.Notify{ position:absolute; top:8px; left:0; color:#f00; }
+.ItemText{ float:left; width:150px; padding:6px 8px 6px 0; }
+.ItemInput{ padding:6px 20px 6px 0; margin-left:150px; }
+.ItemInput input,.ItemInput select{ width:50%; }
+.Form-ds{ padding:15px 0; }

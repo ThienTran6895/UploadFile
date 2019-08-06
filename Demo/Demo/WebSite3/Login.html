@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="Css/kendo.common.min.css" />
+    <link rel="stylesheet" href="Css/kendo.default.min.css" />
+    <link rel="stylesheet" href="Css/kendo.default.mobile.min.css" />
+    <link rel="stylesheet" href="Css/kendo.rtl.min.css" />
+    <link rel="stylesheet" href="Css/kendo.silver.min.css" />
+    <link rel="stylesheet" href="Css/kendo.mobile.all.min.css" />
+    <!--<link rel="stylesheet" href="Css/kendo.blueopal.min.css" />-->
+
+    <script src="js/jquery.min.js"></script>
+
+    <script src="js/kendo.all.min.js"></script>
+</head>
+<body>
+    <div id="example">
+        <form id="login">
+            <label>Tài khoản:</label><br />
+            <input type="text" id="txtUserName" /><br />
+            <label>Mật khẩu</label><br />
+            <input type="password" id="txtPassword" /><br /><br />
+            <input type="button" id="btLogin" value="Đăng nhập" onclick="login()" />
+        </form>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //$("#btLogin").click(login);
+            });
+
+            function login() {
+                const f = {
+                    username: $("#txtUserName").val(),
+                    password: $("#txtPassword").val()
+                };
+                $.ajax({
+                    url: "https://localhost:44326/api/Users",
+                    type: "POST",
+                    contentType: "application/json",
+                    dataType: "json",                                     
+                    data: JSON.stringify(f),                    
+                    success: function (result) {                       
+                        if (result != null) {                           
+                            sessionStorage.setItem("username", result.username);
+                            sessionStorage.setItem("id", result.id);                            
+                            document.location.href = "Home.html";                         
+                        }
+                        else {  
+                            alert("Lỗi nha ku!!!!");
+                        }
+
+
+                        //    window.location.href = "Home.html"
+                    }
+                });
+
+            }
+
+
+
+            function Display() {
+                if ($("#txtUserName").val() == "") {
+
+                    alert("Please Enter your UserName.");
+
+                    return false;
+
+                } else if ($("#txtPassword").val() == "") {
+
+                    alert("Please enter UserPassword.");
+
+                    return false;
+                }
+                alert("Login Successfully");
+
+                return true;
+            }
+        </script>
+    </div>
+
+</body>
+</html>

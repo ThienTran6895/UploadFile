@@ -1,0 +1,147 @@
+]').val(),
+                        area: $('[data-bind="value:area"]').val(),
+                        person: $('[data-bind="value:person"]').val(),
+                        day: $('[data-bind="value:day"]').val(),
+                        isComplete: false
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        crossDomain: true,
+                        accepts: "application/json",
+                        url: crudServiceBaseUrl + "/todo",
+                        contentType: "application/json",
+                        data: JSON.stringify(item),
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert("Something went wrong!");
+                        },
+                        success: function (result) {
+                            grid.dataSource.read();
+                        }
+                    });
+                }
+
+                function deleteItem(id) {
+                    // <snippet_AjaxDelete>
+                    $.ajax({
+                        //url: crudServiceBaseUrl + "/todo" + "/" + id,
+                        url: crudServiceBaseUrl + "/upload" + "/deletefile" + "/" + id,
+                        type: "DELETE",
+                        success: function (result) {
+                            grid.dataSource.read();
+
+                        }
+                    });
+                    // </snippet_AjaxDelete>
+                }
+
+                function editItem(data) {
+                    grid.select().each(function (key, item) {
+                        if (item.id === data.id) {
+                            $('[data-bind="value:name"]').val(item.name);
+                            $('[data-bind="value:area"]').val(item.area);
+                            $('[data-bind="value:person"]').val(item.person);
+                            $('[data-bind="value:day"]').val(item.day);
+                            $('[data-bind="checked:isComplete"]')[0].checked = item.isComplete;
+                        }
+                    });
+                    const item = {
+                        name: $('[data-bind="value:name"]').val(),
+                        area: $('[data-bind="value:area"]').val(),
+                        person: $('[data-bind="value:person"]').val(),
+                        day: $('[data-bind="value:day"]').val(),
+                        isComplete: $('[data-bind="checked:isComplete"]').is(":checked"),
+                    };
+                    $.ajax({
+                        //url: crudServiceBaseUrl + "/todo" + "/" + id,
+                        url: crudServiceBaseUrl + "/upload" + "/editfile" + "/" + data.id + "/" + data.name,
+                        type: "PUT",
+                        accepts: "application/json",
+                        contentType: "application/json",
+                        //data: JSON.stringify(item),
+                        success: function (result) {
+                            grid.dataSource.read();
+                        }
+                    });
+                }
+                function downloadItem(id) {
+                    var url = crudServiceBaseUrl + "/upload" + "/download" + "/" + id;
+                    $.ajax({
+                        url: url,
+                        type: "GET",
+                        accepts: "application/json",
+                        contentType: "application/json",
+                        success: function (result) {
+                            grid.dataSource.read();
+                        }
+                    });
+                }
+
+                function extension() {
+
+                    return "<div class='image-file' style='background-image: url(../Images/excel.png)'></div>";
+
+
+
+                }
+
+            });
+        </script>
+    </div>
+
+    <style type="text/css">
+        .image-file {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-size: 48px 51px;
+            background-position: center center;
+            vertical-align: middle;
+            line-height: 32px;
+            box-shadow: inset 0 0 1px #999, inset 0 0 10px rgba(0,0,0,.2);
+            margin-left: 5px;
+        }
+
+        .customer-name {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 32px;
+            padding-left: 3px;
+        }
+
+        .k-i-folder {
+            font-size: 40px;
+        }
+
+        .background-Image {
+            font-size: 40px;
+        }
+
+        .file-icon {
+            display: inline-block;
+            float: left;
+            width: 48px;
+            height: 48px;
+            margin-left: 10px;
+            margin-top: 13.5px;
+        }
+
+
+
+        .doc-file {
+            background-image: url(../Images/docx.png);
+        }
+
+        .pdf-file {
+            background-image: url(../Images/pdf.png);
+        }
+
+        .xls-file {
+            background-image: url(../Images/excel.png);
+        }
+    </style>
+
+
+</body>
+</html>

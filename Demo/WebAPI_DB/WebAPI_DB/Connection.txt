@@ -1,0 +1,6 @@
+Package Manager Console:
+Scaffold-DbContext "Server=.;Database=data;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+Startup.cs
+var connection = @"Server=.;Database=data;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<dataContext>(options => options.UseSqlServer(connection));
